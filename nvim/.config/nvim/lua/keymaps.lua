@@ -28,16 +28,14 @@ vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 vim.keymap.set('n', '<A-j>', '<cmd>m .+1<CR>==', { desc = 'Move line down' })
 vim.keymap.set('n', '<A-k>', '<cmd>m .-2<CR>==', { desc = 'Move line up' })
 
-vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<CR>', { desc = 'Toggle [E]xplorer' })
+vim.keymap.set('n', '<leader>e', ':Oil', { desc = 'Toggle [E]xplorer' })
 vim.keymap.set('n', '<leader>tr', function() vim.wo.relativenumber = not vim.wo.relativenumber end, { desc = '[T]oggle [R]elative line numbers' })
 vim.keymap.set('n', '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, { desc = '[T]oggle [D]iagnostics' })
 
 vim.api.nvim_create_autocmd('BufEnter', {
   group = vim.api.nvim_create_augroup('help-in-buffer', { clear = true }),
   callback = function()
-    if vim.bo.buftype == 'help' then
-      vim.cmd 'only'
-    end
+    if vim.bo.buftype == 'help' then vim.cmd 'only' end
   end,
 })
 
