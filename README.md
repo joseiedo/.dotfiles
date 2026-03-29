@@ -1,4 +1,4 @@
-***notes for my future self***
+# notes for my future self
 
 - use **stow** to install configs
 - update BrewFile with new dependencies/lps
