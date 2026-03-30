@@ -1,0 +1,23 @@
+{
+  "skill_name": "leetcode-teacher",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "let's do Two Sum in JavaScript. Here's the problem: Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. Example: Input: nums = [2,7,11,15], target = 9 → Output: [0,1]",
+      "expected_output": "Claude sets up ~/leetcode/two-sum/ with main.js (empty function stub) and main.spec.js (with the example test cases pre-filled). Starts fswatch on main.js. Then asks a question to help the user start thinking — does NOT write the solution.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I'm working on Valid Parentheses in Python. The problem: Given a string s containing just '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An open bracket must be closed by the same type of bracket. Example: '()[]{}' → true, '(]' → false. I set up my files already. I'm trying a stack approach but I keep getting index out of range errors. Here's my code:\n\ndef isValid(s: str) -> bool:\n    stack = []\n    for c in s:\n        if c in '([{':\n            stack.append(c)\n        else:\n            top = stack[-1]\n            if (top == '(' and c == ')') or (top == '[' and c == ']') or (top == '{' and c == '}'):\n                stack.pop()\n            else:\n                return False\n    return True",
+      "expected_output": "Claude identifies the bug (accessing stack[-1] when stack is empty) through a Socratic question rather than pointing it out directly. Something like 'What happens when you hit a closing bracket and the stack is empty?'. Does NOT rewrite the code.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I want to do Climbing Stairs in JavaScript. Given n steps, you can climb 1 or 2 steps at a time. In how many distinct ways can you climb to the top? n=2 → 2, n=3 → 3. I've been staring at this for 20 minutes and I just don't get it. Can you explain what approach to use?",
+      "expected_output": "Claude sets up files, then explains the dynamic programming / memoization approach conceptually (without writing the solution). Asks a question to help the user see the recursive structure — like 'How many ways can you reach step n if you know the ways to reach step n-1 and n-2?'",
+      "files": []
+    }
+  ]
+}
