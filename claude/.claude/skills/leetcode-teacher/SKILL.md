@@ -16,9 +16,10 @@ You need two things before doing anything:
 2. The language they want to use
 
 Once you have both:
-1. Restate the problem in your own words to confirm understanding
-2. Set up `~/leetcode/{problem-name}/` with a solution stub and a test file pre-filled with the example cases from the problem
-3. Ask which part of the problem the user wants to think about first
+1. **Check prerequisites** — verify the language tooling and test runner are available before scaffolding (see Prerequisites Check below)
+2. Restate the problem in your own words to confirm understanding
+3. Set up `~/leetcode/{problem-name}/` with a solution stub and a test file pre-filled with the example cases from the problem
+4. Ask which part of the problem the user wants to think about first
 
 Use the templates in `references/templates.md` for the starter files.
 
@@ -38,10 +39,25 @@ Language conventions:
 |------------|-------------|------------------|------------------------|
 | JavaScript | main.js     | main.spec.js     | `npx jest`             |
 | TypeScript | main.ts     | main.spec.ts     | `npx jest`             |
-| Python     | main.py     | test_main.py     | `pytest`               |
+| Python     | main.py     | test_main.py     | `uv run pytest`        |
 | Go         | main.go     | main_test.go     | `go test ./...`        |
 
-If the user's environment doesn't have the test runner set up, help them with `npm init -y && npm install --save-dev jest` (JS) or equivalent.
+## Prerequisites Check
+
+Before scaffolding files, verify the required tools are installed. Run the check commands and tell the user exactly what's missing and how to install it.
+
+| Language   | Check commands                          | Install if missing                        |
+|------------|----------------------------------------|-------------------------------------------|
+| JavaScript | `which node && which npx`              | Install Node.js: `brew install node`      |
+| TypeScript | `which node && which npx`              | Install Node.js: `brew install node`      |
+| Python     | `which python3 && which uv`            | Install uv: `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| Go         | `which go`                             | Install Go: `brew install go`             |
+Also check for test runner setup:
+- **JS/TS**: Check for `package.json` with jest. If missing: `npm init -y && npm install --save-dev jest`
+- **Python**: uv handles pytest automatically via `uv run pytest`
+- **Go**: built-in, no extra setup needed
+
+Do not proceed with file setup until all prerequisites are confirmed. Tell the user clearly what's missing and the exact command to install it.
 
 ## When the User is Stuck
 
@@ -70,29 +86,15 @@ Keep a mental model of:
 
 When they share test output (RED/GREEN), read it carefully. If it's RED, help them understand what the failure is telling them before jumping to why.
 
-## File Watcher
+## Running Tests
 
-After setting up the files, start a file watcher on the solution file so tests run automatically on every save:
+Run tests on demand when the user asks (e.g., "check", "run tests"). Do not use file watchers or background processes.
 
-```bash
-fswatch -0 ~/leetcode/{problem-name}/main.{ext} | xargs -0 -I{} <test-command>
-```
+Report results as:
+- **RED:** `RED. {test name} — {what failed and why, one line}`
+- **GREEN:** `GREEN. All tests pass.`
 
-Test commands per language:
-
-| Language   | Watch file  | Test command                                           |
-|------------|-------------|--------------------------------------------------------|
-| JavaScript | main.js     | `cd ~/leetcode/{problem-name} && npx jest --no-coverage` |
-| TypeScript | main.ts     | `cd ~/leetcode/{problem-name} && npx jest --no-coverage` |
-| Python     | main.py     | `cd ~/leetcode/{problem-name} && pytest`               |
-| Go         | main.go     | `cd ~/leetcode/{problem-name} && go test ./...`        |
-
-On each trigger: run the tests and report `RED` or `GREEN` with a one-line summary of what failed. Then wait — don't jump in with suggestions unless the user asks. Let them sit with the failure.
-
-**RED:** `RED. {test name} — {what failed and why, one line}`
-**GREEN:** `GREEN. All tests pass.`
-
-If `fswatch` is not installed, suggest: `brew install fswatch`
+Then wait — don't jump in with suggestions unless the user asks.
 
 ## Navigator Rules
 
