@@ -1,9 +1,7 @@
-return {
-  'folke/todo-comments.nvim',
-  event = 'VimEnter',
-  dependencies = { 'nvim-lua/plenary.nvim' },
-  ---@module 'todo-comments'
-  ---@type TodoOptions
-  ---@diagnostic disable-next-line: missing-fields
-  opts = { signs = false },
-}
+local M = {}
+
+function M.setup()
+  require('todo-comments').setup { signs = false }
+end
+
+return M

@@ -5,4 +5,4 @@ vim.g.have_nerd_font = false
 
 require 'options'
 require 'keymaps'
-require 'lazy-setup'
+require 'pack-setup'

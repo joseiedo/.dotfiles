@@ -1,4 +1,7 @@
-return {
-  'NMAC427/guess-indent.nvim',
-  opts = {},
-}
+local M = {}
+
+function M.setup()
+  require('guess-indent').setup {}
+end
+
+return M

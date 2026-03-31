@@ -1,15 +1,13 @@
-return {
-  'lewis6991/gitsigns.nvim',
-  ---@module 'gitsigns'
-  ---@type Gitsigns.Config
-  ---@diagnostic disable-next-line: missing-fields
-  opts = {
+local M = {}
+
+function M.setup()
+  require('gitsigns').setup {
     signs = {
-      add = { text = '+' }, ---@diagnostic disable-line: missing-fields
-      change = { text = '~' }, ---@diagnostic disable-line: missing-fields
-      delete = { text = '_' }, ---@diagnostic disable-line: missing-fields
-      topdelete = { text = '‾' }, ---@diagnostic disable-line: missing-fields
-      changedelete = { text = '~' }, ---@diagnostic disable-line: missing-fields
+      add = { text = '+' },
+      change = { text = '~' },
+      delete = { text = '_' },
+      topdelete = { text = '‾' },
+      changedelete = { text = '~' },
     },
     on_attach = function(bufnr)
       local gitsigns = require 'gitsigns'
@@ -50,5 +48,7 @@ return {
       map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
       map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
     end,
-  },
-}
+  }
+end
+
+return M

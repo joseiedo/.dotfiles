@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  require('nvim-autopairs').setup {}
+  vim.cmd.colorscheme 'rose-pine'
 end
 
 return M

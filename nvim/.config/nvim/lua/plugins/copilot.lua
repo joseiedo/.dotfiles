@@ -1,15 +1,14 @@
-return {
-  {
-    'zbirenbaum/copilot.lua',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
-    opts = {
-      suggestion = {
-        auto_trigger = true,
-        keymap = {
-          accept = '<Tab>',
-        },
+local M = {}
+
+function M.setup()
+  require('copilot').setup {
+    suggestion = {
+      auto_trigger = true,
+      keymap = {
+        accept = '<Tab>',
       },
     },
-  },
-}
+  }
+end
+
+return M
