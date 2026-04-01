@@ -54,6 +54,10 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.misc": {
+      "rev": "de8947231c29012271722651aa07f6749c41d1ed",
+      "src": "https://github.com/nvim-mini/mini.misc"
+    },
     "mini.nvim": {
       "rev": "af5f75c9ce572a4d1f0c77d6fb4ea764d16c1b3c",
       "src": "https://github.com/nvim-mini/mini.nvim"
@@ -125,10 +129,6 @@
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
       "src": "https://github.com/folke/todo-comments.nvim"
-    },
-    "undotree": {
-      "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
-      "src": "https://github.com/mbbill/undotree"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",

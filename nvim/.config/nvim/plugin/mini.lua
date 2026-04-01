@@ -1,0 +1,21 @@
+Config.now(function()
+  vim.pack.add { 'https://github.com/nvim-mini/mini.nvim' }
+
+  require('mini.surround').setup {
+    mappings = {
+      add = 'gsa',
+      delete = 'gsd',
+      find = 'gsf',
+      find_left = 'gsF',
+      highlight = 'gsh',
+      replace = 'gsr',
+      update_n_lines = 'gsn',
+    },
+  }
+
+  local statusline = require 'mini.statusline'
+  statusline.setup { use_icons = vim.g.have_nerd_font }
+
+  ---@diagnostic disable-next-line: duplicate-set-field
+  statusline.section_location = function() return '%2l:%-2v' end
+end)

@@ -32,6 +32,16 @@ vim.keymap.set('n', '<leader>e', ':Oil<CR>', { desc = 'Toggle [E]xplorer' })
 vim.keymap.set('n', '<leader>tr', function() vim.wo.relativenumber = not vim.wo.relativenumber end, { desc = '[T]oggle [R]elative line numbers' })
 vim.keymap.set('n', '<leader>td', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, { desc = '[T]oggle [D]iagnostics' })
 
+-- vim.api.nvim_create_user_command('PrunePlugins', function()
+--   local plugins = vim.iter(vim.pack.get()):filter(function(x) return not x.active end):map(function(x) return x.spec.name end):totable()
+--   if #plugins > 0 then
+--     vim.notify('Pruning plugins: ' .. table.concat(plugins, ', '), vim.log.levels.INFO)
+--     vim.pack.del(plugins)
+--   else
+--     vim.notify('No plugins to prune', vim.log.levels.INFO)
+--   end
+-- end, { desc = 'Clean non-active plugins installed by built-in plugin manager' })
+
 vim.api.nvim_create_autocmd('BufEnter', {
   group = vim.api.nvim_create_augroup('help-in-buffer', { clear = true }),
   callback = function()
