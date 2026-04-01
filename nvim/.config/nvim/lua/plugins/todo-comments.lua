@@ -1,9 +1,2 @@
-local M = {}
-
-M.source = 'https://github.com/folke/todo-comments.nvim'
-
-function M.setup()
-  require('todo-comments').setup { signs = false }
-end
-
-return M
+vim.pack.add { 'https://github.com/folke/todo-comments.nvim' }
+require('todo-comments').setup { signs = false }

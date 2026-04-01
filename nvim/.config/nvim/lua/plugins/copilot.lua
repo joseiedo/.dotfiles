@@ -1,16 +1,10 @@
-local M = {}
+vim.pack.add { 'https://github.com/zbirenbaum/copilot.lua' }
 
-M.source = 'https://github.com/zbirenbaum/copilot.lua'
-
-function M.setup()
-  require('copilot').setup {
-    suggestion = {
-      auto_trigger = true,
-      keymap = {
-        accept = '<Tab>',
-      },
+require('copilot').setup {
+  suggestion = {
+    auto_trigger = true,
+    keymap = {
+      accept = '<Tab>',
     },
-  }
-end
-
-return M
+  },
+}

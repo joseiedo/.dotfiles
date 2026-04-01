@@ -1,19 +1,13 @@
-local M = {}
+vim.pack.add { 'https://github.com/folke/which-key.nvim' }
 
-M.source = 'https://github.com/folke/which-key.nvim'
-
-function M.setup()
-  require('which-key').setup {
-    delay = 0,
-    icons = { mappings = vim.g.have_nerd_font },
-    spec = {
-      { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
-      { '<leader>t', group = '[T]oggle' },
-      { '<leader>g', group = '[G]it' },
-      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-      { 'gr', group = 'LSP Actions', mode = { 'n' } },
-    },
-  }
-end
-
-return M
+require('which-key').setup {
+  delay = 0,
+  icons = { mappings = vim.g.have_nerd_font },
+  spec = {
+    { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
+    { '<leader>t', group = '[T]oggle' },
+    { '<leader>g', group = '[G]it' },
+    { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+    { 'gr', group = 'LSP Actions', mode = { 'n' } },
+  },
+}
