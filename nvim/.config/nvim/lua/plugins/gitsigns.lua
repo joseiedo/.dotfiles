@@ -1,5 +1,7 @@
 local M = {}
 
+M.source = 'https://github.com/lewis6991/gitsigns.nvim'
+
 function M.setup()
   require('gitsigns').setup {
     signs = {

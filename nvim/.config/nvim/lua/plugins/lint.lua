@@ -1,5 +1,7 @@
 local M = {}
 
+M.source = 'https://github.com/mfussenegger/nvim-lint'
+
 function M.setup()
   local lint = require 'lint'
   lint.linters_by_ft = {

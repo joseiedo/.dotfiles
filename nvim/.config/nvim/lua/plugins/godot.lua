@@ -1,5 +1,7 @@
 local M = {}
 
+M.source = 'https://github.com/lommix/godot.nvim'
+
 function M.setup()
   -- -- Skip godot.nvim's lspconfig-based LSP setup (deprecated in nvim 0.11+)
   -- -- and configure gdscript LSP ourselves via vim.lsp.config

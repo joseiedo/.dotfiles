@@ -1,5 +1,11 @@
 local M = {}
 
+M.source = {
+  'https://github.com/nvim-telescope/telescope.nvim',
+  'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
+  'https://github.com/nvim-telescope/telescope-ui-select.nvim',
+}
+
 function M.setup()
   require('telescope').setup {
     defaults = {

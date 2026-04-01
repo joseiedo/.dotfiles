@@ -1,5 +1,7 @@
 local M = {}
 
+M.source = 'https://github.com/folke/which-key.nvim'
+
 function M.setup()
   require('which-key').setup {
     delay = 0,

@@ -1,5 +1,13 @@
 local M = {}
 
+M.source = {
+  'https://github.com/mfussenegger/nvim-dap',
+  'https://github.com/rcarriga/nvim-dap-ui',
+  'https://github.com/nvim-neotest/nvim-nio',
+  'https://github.com/jay-babu/mason-nvim-dap.nvim',
+  'https://github.com/leoluz/nvim-dap-go',
+}
+
 function M.setup()
   local dap = require 'dap'
   local dapui = require 'dapui'

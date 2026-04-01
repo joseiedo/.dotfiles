@@ -1,5 +1,7 @@
 local M = {}
 
+M.source = 'https://github.com/folke/flash.nvim'
+
 function M.setup()
   require('flash').setup {
     modes = {

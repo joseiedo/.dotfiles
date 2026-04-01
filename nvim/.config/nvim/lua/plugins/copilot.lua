@@ -1,5 +1,7 @@
 local M = {}
 
+M.source = 'https://github.com/zbirenbaum/copilot.lua'
+
 function M.setup()
   require('copilot').setup {
     suggestion = {

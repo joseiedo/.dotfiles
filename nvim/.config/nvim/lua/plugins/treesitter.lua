@@ -1,5 +1,10 @@
 local M = {}
 
+M.source = {
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
+}
+
 function M.setup()
   local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
   require('nvim-treesitter').install(parsers)

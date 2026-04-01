@@ -1,5 +1,7 @@
 local M = {}
 
+M.source = 'https://github.com/stevearc/conform.nvim'
+
 function M.setup()
   require('conform').setup {
     notify_on_error = false,
