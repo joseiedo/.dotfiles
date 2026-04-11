@@ -6,6 +6,12 @@ Config.now_if_args(function()
 
   local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
   require('nvim-treesitter').install(parsers)
+  local disable_legacy_syntax = {
+    javascript = true,
+    tsx = true,
+    typescript = true,
+  }
+
   vim.api.nvim_create_autocmd('FileType', {
     callback = function(args)
       local buf, filetype = args.buf, args.match
@@ -15,6 +21,7 @@ Config.now_if_args(function()
 
       if not vim.treesitter.language.add(language) then return end
       vim.treesitter.start(buf, language)
+      if disable_legacy_syntax[language] then vim.bo[buf].syntax = 'off' end
 
       vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end,
