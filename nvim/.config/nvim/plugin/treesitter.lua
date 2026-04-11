@@ -38,6 +38,23 @@ Config.now_if_args(function()
   local swap = require 'nvim-treesitter-textobjects.swap'
   local ts_repeat_move = require 'nvim-treesitter-textobjects.repeatable_move'
 
+  -- incremental selection treesitter/lsp
+  vim.keymap.set({ 'n', 'x', 'o' }, '<A-o>', function()
+    if vim.treesitter.get_parser(nil, nil, { error = false }) then
+      require('vim.treesitter._select').select_parent(vim.v.count1)
+    else
+      vim.lsp.buf.selection_range(vim.v.count1)
+    end
+  end, { desc = 'Select parent treesitter node or outer incremental lsp selections' })
+
+  vim.keymap.set({ 'n', 'x', 'o' }, '<A-i>', function()
+    if vim.treesitter.get_parser(nil, nil, { error = false }) then
+      require('vim.treesitter._select').select_child(vim.v.count1)
+    else
+      vim.lsp.buf.selection_range(-vim.v.count1)
+    end
+  end, { desc = 'Select child treesitter node or inner incremental lsp selections' })
+
   vim.keymap.set({ 'n', 'x', 'o' }, ';', ts_repeat_move.repeat_last_move_next)
   vim.keymap.set({ 'n', 'x', 'o' }, ',', ts_repeat_move.repeat_last_move_previous)
   vim.keymap.set({ 'n', 'x', 'o' }, 'f', ts_repeat_move.builtin_f_expr, { expr = true })

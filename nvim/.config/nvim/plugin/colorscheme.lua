@@ -200,6 +200,12 @@ set(overrides.callable, { fg = C.callable })
 
 hi('Normal', { fg = C.fg, bg = C.bg })
 hi('NormalNC', { fg = C.fg, bg = C.bg })
+hi('NormalFloat', { fg = C.fg, bg = C.bg_float })
+hi('FloatBorder', { fg = C.keyword, bg = C.bg_float })
+hi('FloatTitle', { fg = C.keyword, bg = C.bg_float })
+hi('CursorLine', { bg = C.selection })
+hi('StatusLine', { fg = C.muted, bg = p.bg_mid })
+hi('StatusLineNC', { fg = C.dim, bg = C.bg_float })
 hi('Visual', { bg = C.selection })
 hi('VisualNOS', { bg = C.selection })
 hi('LspReferenceText', { bg = C.selection })
@@ -229,14 +235,55 @@ set({
   'BlinkCmpKindStruct',
   'BlinkCmpKindTypeParameter',
 }, { fg = C.callable })
-set(
-  { 'BlinkCmpKindColor', 'BlinkCmpKindConstant', 'BlinkCmpKindEnumMember', 'BlinkCmpKindSnippet', 'BlinkCmpKindUnit', 'BlinkCmpKindValue' },
-  { fg = C.literal }
-)
+set({ 'BlinkCmpKindColor', 'BlinkCmpKindConstant', 'BlinkCmpKindEnumMember', 'BlinkCmpKindSnippet', 'BlinkCmpKindUnit', 'BlinkCmpKindValue' }, { fg = C.literal })
 set({ 'BlinkCmpKindField', 'BlinkCmpKindFile', 'BlinkCmpKindOperator', 'BlinkCmpKindProperty', 'BlinkCmpKindText', 'BlinkCmpKindVariable' }, { fg = C.fg })
 set({ 'BlinkCmpKindKeyword' }, { fg = C.keyword })
 set({ 'BlinkCmpKindReference' }, { fg = C.info })
 set({ 'BlinkCmpKindEvent' }, { fg = C.warn })
+
+hi('FlashBackdrop', { fg = C.dim })
+hi('FlashMatch', { fg = C.bg, bg = C.callable, bold = true })
+hi('FlashCurrent', { fg = C.bg, bg = C.warn, bold = true })
+hi('FlashLabel', { fg = C.bg, bg = C.attention, bold = true })
+
+hi('OilDir', { fg = C.callable })
+hi('OilDirIcon', { fg = C.callable })
+hi('OilFile', { fg = C.fg })
+hi('OilHidden', { fg = C.dim })
+hi('OilLink', { fg = C.info })
+hi('OilOrphanLink', { fg = C.attention })
+hi('OilSocket', { fg = C.literal })
+hi('OilCreate', { fg = C.callable })
+hi('OilDelete', { fg = C.attention })
+hi('OilMove', { fg = C.warn })
+hi('OilChange', { fg = C.warn })
+hi('OilCopy', { fg = C.info })
+hi('OilRestore', { fg = C.callable })
+hi('OilTrash', { fg = C.attention })
+hi('OilPurge', { fg = C.attention, bold = true })
+hi('OilPermissionRead', { fg = C.warn })
+hi('OilPermissionWrite', { fg = C.attention })
+hi('OilPermissionExecute', { fg = C.callable })
+
+hi('MiniFilesNormal', { fg = C.fg, bg = C.bg_float })
+hi('MiniFilesBorder', { fg = C.keyword, bg = C.bg_float })
+hi('MiniFilesBorderModified', { fg = C.warn, bg = C.bg_float })
+hi('MiniFilesCursorLine', { bg = C.selection })
+hi('MiniFilesDirectory', { fg = C.callable, bg = C.bg_float })
+hi('MiniFilesFile', { fg = C.fg, bg = C.bg_float })
+hi('MiniFilesTitle', { fg = C.keyword, bg = C.bg_float })
+hi('MiniFilesTitleFocused', { fg = C.callable, bg = C.bg_float, bold = true })
+
+hi('MiniStatuslineModeNormal', { fg = C.bg, bg = C.callable, bold = true })
+hi('MiniStatuslineModeInsert', { fg = C.bg, bg = C.info, bold = true })
+hi('MiniStatuslineModeVisual', { fg = C.bg, bg = C.literal, bold = true })
+hi('MiniStatuslineModeReplace', { fg = C.bg, bg = C.attention, bold = true })
+hi('MiniStatuslineModeCommand', { fg = C.bg, bg = C.warn, bold = true })
+hi('MiniStatuslineModeOther', { fg = C.bg, bg = C.keyword, bold = true })
+hi('MiniStatuslineDevinfo', { fg = C.muted, bg = p.bg_mid })
+hi('MiniStatuslineFilename', { fg = C.fg, bg = p.bg_mid })
+hi('MiniStatuslineFileinfo', { fg = C.muted, bg = p.bg_mid })
+hi('MiniStatuslineInactive', { fg = C.dim, bg = C.bg_float })
 
 hi('FidgetTitle', { fg = C.callable, bg = C.bg_float, bold = true })
 hi('FidgetTask', { fg = C.muted, bg = C.bg_float })
@@ -257,5 +304,6 @@ for name, color in pairs {
   Red = C.attention,
   Yellow = C.warn,
 } do
+  hi('MiniIcons' .. name, { fg = color, bg = C.bg_float })
   hi('WhichKeyIcon' .. name, { fg = color, bg = C.bg_float })
 end
