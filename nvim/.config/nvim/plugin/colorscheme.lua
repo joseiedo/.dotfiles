@@ -229,35 +229,14 @@ set({
   'BlinkCmpKindStruct',
   'BlinkCmpKindTypeParameter',
 }, { fg = C.callable })
-set({ 'BlinkCmpKindColor', 'BlinkCmpKindConstant', 'BlinkCmpKindEnumMember', 'BlinkCmpKindSnippet', 'BlinkCmpKindUnit', 'BlinkCmpKindValue' }, { fg = C.literal })
+set(
+  { 'BlinkCmpKindColor', 'BlinkCmpKindConstant', 'BlinkCmpKindEnumMember', 'BlinkCmpKindSnippet', 'BlinkCmpKindUnit', 'BlinkCmpKindValue' },
+  { fg = C.literal }
+)
 set({ 'BlinkCmpKindField', 'BlinkCmpKindFile', 'BlinkCmpKindOperator', 'BlinkCmpKindProperty', 'BlinkCmpKindText', 'BlinkCmpKindVariable' }, { fg = C.fg })
 set({ 'BlinkCmpKindKeyword' }, { fg = C.keyword })
 set({ 'BlinkCmpKindReference' }, { fg = C.info })
 set({ 'BlinkCmpKindEvent' }, { fg = C.warn })
-
-hi('FlashBackdrop', { fg = C.dim })
-hi('FlashMatch', { fg = C.bg, bg = C.callable, bold = true })
-hi('FlashCurrent', { fg = C.bg, bg = C.warn, bold = true })
-hi('FlashLabel', { fg = C.bg, bg = C.attention, bold = true })
-
-hi('OilDir', { fg = C.callable })
-hi('OilDirIcon', { fg = C.callable })
-hi('OilFile', { fg = C.fg })
-hi('OilHidden', { fg = C.dim })
-hi('OilLink', { fg = C.info })
-hi('OilOrphanLink', { fg = C.attention })
-hi('OilSocket', { fg = C.literal })
-hi('OilCreate', { fg = C.callable })
-hi('OilDelete', { fg = C.attention })
-hi('OilMove', { fg = C.warn })
-hi('OilChange', { fg = C.warn })
-hi('OilCopy', { fg = C.info })
-hi('OilRestore', { fg = C.callable })
-hi('OilTrash', { fg = C.attention })
-hi('OilPurge', { fg = C.attention, bold = true })
-hi('OilPermissionRead', { fg = C.warn })
-hi('OilPermissionWrite', { fg = C.attention })
-hi('OilPermissionExecute', { fg = C.callable })
 
 hi('FidgetTitle', { fg = C.callable, bg = C.bg_float, bold = true })
 hi('FidgetTask', { fg = C.muted, bg = C.bg_float })
