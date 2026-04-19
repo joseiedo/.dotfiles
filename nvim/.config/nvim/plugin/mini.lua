@@ -16,27 +16,8 @@ Config.now(function()
   require('mini.pairs').setup {}
   require('mini.files').setup {}
 
-  local clue = require 'mini.clue'
-  clue.setup {
-    triggers = {
-      { mode = { 'n', 'x' }, keys = '<leader>' },
-      { mode = 'n', keys = 'gr' },
-    },
-    clues = {
-      { mode = { 'n', 'x' }, keys = '<leader>s', desc = '+[S]earch' },
-      { mode = 'n', keys = '<leader>t', desc = '+[T]oggle' },
-      { mode = 'n', keys = '<leader>g', desc = '+[G]it' },
-      { mode = { 'n', 'x' }, keys = '<leader>h', desc = '+Git [H]unk' },
-      { mode = 'n', keys = 'gr', desc = '+LSP Actions' },
-    },
-    window = {
-      delay = 0,
-    },
-  }
-
   local statusline = require 'mini.statusline'
   statusline.setup {
-    use_icons = vim.g.have_nerd_font,
     content = {
       active = function()
         local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }

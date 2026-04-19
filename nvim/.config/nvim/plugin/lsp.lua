@@ -67,6 +67,8 @@ Config.now_if_args(function()
     ts_ls = {},
     ruff = {},
 
+    rust_analyzer = {},
+
     lua_ls = {
       on_init = function(client)
         if client.workspace_folders then
