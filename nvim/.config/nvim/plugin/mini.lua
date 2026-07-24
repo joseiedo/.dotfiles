@@ -14,7 +14,6 @@ Config.now(function()
   }
 
   require('mini.pairs').setup {}
-  require('mini.files').setup {}
 
   local statusline = require 'mini.statusline'
   statusline.setup {
