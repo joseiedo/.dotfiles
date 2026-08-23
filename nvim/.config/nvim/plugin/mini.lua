@@ -1,4 +1,6 @@
 Config.now(function()
+  vim.pack.add { 'https://github.com/christoomey/vim-tmux-navigator' }
+
   vim.pack.add { 'https://github.com/nvim-mini/mini.nvim' }
 
   require('mini.surround').setup {

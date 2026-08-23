@@ -64,6 +64,7 @@ Config.now_if_args(function()
     golangci_lint_ls = {},
 
     jedi_language_server = {},
+    clojure_lsp = {},
     ts_ls = {},
     ruff = {},
 
